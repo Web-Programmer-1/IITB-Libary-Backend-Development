@@ -1,10 +1,17 @@
-import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { ExpressAdapter } from '@nestjs/platform-express';
+import { AppModule } from '../src/app.module';
+import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import { AppModule } from './app.module';
+import express from 'express';
 
-async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+const server = express();
+
+async function createServer() {
+  const app = await NestFactory.create(
+    AppModule,
+    new ExpressAdapter(server)
+  );
 
   app.setGlobalPrefix('api', {
     exclude: ['/'],
@@ -28,7 +35,15 @@ async function bootstrap() {
   const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup('docs', app, document);
 
-  await app.listen(process.env.PORT || 5000);
+  await app.init();
 }
 
-bootstrap();
+let isInitialized = false;
+
+export default async (req: any, res: any) => {
+  if (!isInitialized) {
+    await createServer();
+    isInitialized = true;
+  }
+  server(req, res);
+};

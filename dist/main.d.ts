@@ -1,1 +1,2 @@
-export {};
+declare let handler: any;
+export default handler;

@@ -6,7 +6,7 @@ export declare class DashboardService {
         totalBooks: number;
         totalUsers: number;
         activeIssues: number;
-        totalPendingFines: number | import("@prisma/client/runtime/library").Decimal;
+        totalPendingFines: number | import("src/generated/client/runtime/library").Decimal;
         lowStockBooks: {
             id: string;
             title: string;
@@ -21,38 +21,38 @@ export declare class DashboardService {
             phone: string;
             profileImage: string | null;
             joinDate: Date;
-            fineBalance: import("@prisma/client/runtime/library").Decimal;
+            fineBalance: import("src/generated/client/runtime/library").Decimal;
         } | null;
         activeIssues: ({
             book: {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
-                categoryId: string;
-                language: string;
                 title: string;
                 author: string;
                 isbn: string;
+                categoryId: string;
                 shelfNo: string;
                 totalCopies: number;
+                availableCopies: number;
                 bookImage: string;
                 description: string;
                 publishedYear: number;
                 publisher: string;
                 pages: number;
-                availableCopies: number;
+                language: string;
             };
         } & {
             id: string;
+            issueDate: Date;
+            dueDate: Date;
+            returnDate: Date | null;
+            fineAmount: import("src/generated/client/runtime/library").Decimal;
+            isReturned: boolean;
             createdAt: Date;
             updatedAt: Date;
             bookId: string;
             userId: string;
-            issueDate: Date;
-            dueDate: Date;
-            returnDate: Date | null;
-            fineAmount: import("@prisma/client/runtime/library").Decimal;
-            isReturned: boolean;
         })[];
         myReviews: ({
             book: {
@@ -62,10 +62,10 @@ export declare class DashboardService {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            rating: number;
-            comment: string;
             bookId: string;
             userId: string;
+            rating: number;
+            comment: string;
         })[];
         myFines: ({
             issueReturn: {
@@ -84,10 +84,10 @@ export declare class DashboardService {
             createdAt: Date;
             updatedAt: Date;
             userId: string;
-            amount: import("@prisma/client/runtime/library").Decimal;
+            issueReturnId: string;
+            amount: import("src/generated/client/runtime/library").Decimal;
             isPaid: boolean;
             paidDate: Date | null;
-            issueReturnId: string;
         })[];
     }>;
     payFine(userId: string, fineId: string): Promise<{
@@ -109,10 +109,10 @@ export declare class DashboardService {
             createdAt: Date;
             updatedAt: Date;
             userId: string;
-            amount: import("@prisma/client/runtime/library").Decimal;
+            issueReturnId: string;
+            amount: import("src/generated/client/runtime/library").Decimal;
             isPaid: boolean;
             paidDate: Date | null;
-            issueReturnId: string;
         };
     }>;
 }

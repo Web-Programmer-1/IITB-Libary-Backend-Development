@@ -3,19 +3,19 @@ import { CreateCategoryDto } from './dto/create-category.dto';
 export declare class CategoriesService {
     private readonly prisma;
     constructor(prisma: PrismaService);
-    create(dto: CreateCategoryDto): import("@prisma/client").Prisma.Prisma__CategoryClient<{
+    create(dto: CreateCategoryDto): import("src/generated/client").Prisma.Prisma__CategoryClient<{
         id: string;
-        name: string;
-        slug: string;
-        description: string;
-        categoryImage: string;
         createdAt: Date;
         updatedAt: Date;
-    }, never, import("@prisma/client/runtime/library").DefaultArgs>;
+        name: string;
+        description: string;
+        slug: string;
+        categoryImage: string;
+    }, never, import("src/generated/client/runtime/library").DefaultArgs>;
     findAll({ page, limit }: {
         page?: number;
         limit?: number;
-    }): import("@prisma/client").Prisma.PrismaPromise<({
+    }): import("src/generated/client").Prisma.PrismaPromise<({
         books: {
             id: string;
             title: string;
@@ -23,20 +23,20 @@ export declare class CategoriesService {
         }[];
     } & {
         id: string;
-        name: string;
-        slug: string;
-        description: string;
-        categoryImage: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
+        description: string;
+        slug: string;
+        categoryImage: string;
     })[]>;
     remove(id: string): Promise<{
         id: string;
-        name: string;
-        slug: string;
-        description: string;
-        categoryImage: string;
         createdAt: Date;
         updatedAt: Date;
+        name: string;
+        description: string;
+        slug: string;
+        categoryImage: string;
     }>;
 }

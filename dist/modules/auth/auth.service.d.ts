@@ -11,6 +11,8 @@ export declare class AuthService {
         message: string;
         user: {
             id: string;
+            createdAt: Date;
+            updatedAt: Date;
             name: string;
             email: string;
             password: string;
@@ -19,15 +21,15 @@ export declare class AuthService {
             profileImage: string | null;
             joinDate: Date;
             maxBooksAllowed: number;
-            fineBalance: import("@prisma/client/runtime/library").Decimal;
-            createdAt: Date;
-            updatedAt: Date;
+            fineBalance: import("src/generated/client/runtime/library").Decimal;
         };
     }>;
     login(dto: LoginDto): Promise<{
         accessToken: string;
         user: {
             id: string;
+            createdAt: Date;
+            updatedAt: Date;
             name: string;
             email: string;
             phone: string;
@@ -35,12 +37,12 @@ export declare class AuthService {
             profileImage: string | null;
             joinDate: Date;
             maxBooksAllowed: number;
-            fineBalance: import("@prisma/client/runtime/library").Decimal;
-            createdAt: Date;
-            updatedAt: Date;
+            fineBalance: import("src/generated/client/runtime/library").Decimal;
         } | {
             [x: string]: unknown;
             id: string;
+            createdAt: Date;
+            updatedAt: Date;
             name: string;
             email: string;
             phone: string;
@@ -48,13 +50,13 @@ export declare class AuthService {
             profileImage: string | null;
             joinDate: Date;
             maxBooksAllowed: number;
-            fineBalance: import("@prisma/client/runtime/library").Decimal;
-            createdAt: Date;
-            updatedAt: Date;
+            fineBalance: import("src/generated/client/runtime/library").Decimal;
         };
     }>;
     me(userId: string): Promise<{
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
         name: string;
         email: string;
         phone: string;
@@ -62,12 +64,12 @@ export declare class AuthService {
         profileImage: string | null;
         joinDate: Date;
         maxBooksAllowed: number;
-        fineBalance: import("@prisma/client/runtime/library").Decimal;
-        createdAt: Date;
-        updatedAt: Date;
+        fineBalance: import("src/generated/client/runtime/library").Decimal;
     } | {
         [x: string]: unknown;
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
         name: string;
         email: string;
         phone: string;
@@ -75,14 +77,14 @@ export declare class AuthService {
         profileImage: string | null;
         joinDate: Date;
         maxBooksAllowed: number;
-        fineBalance: import("@prisma/client/runtime/library").Decimal;
-        createdAt: Date;
-        updatedAt: Date;
+        fineBalance: import("src/generated/client/runtime/library").Decimal;
     }>;
     updateProfile(userId: string, dto: UpdateProfileDto): Promise<{
         message: string;
         user: {
             id: string;
+            createdAt: Date;
+            updatedAt: Date;
             name: string;
             email: string;
             phone: string;
@@ -90,12 +92,12 @@ export declare class AuthService {
             profileImage: string | null;
             joinDate: Date;
             maxBooksAllowed: number;
-            fineBalance: import("@prisma/client/runtime/library").Decimal;
-            createdAt: Date;
-            updatedAt: Date;
+            fineBalance: import("src/generated/client/runtime/library").Decimal;
         } | {
             [x: string]: unknown;
             id: string;
+            createdAt: Date;
+            updatedAt: Date;
             name: string;
             email: string;
             phone: string;
@@ -103,9 +105,7 @@ export declare class AuthService {
             profileImage: string | null;
             joinDate: Date;
             maxBooksAllowed: number;
-            fineBalance: import("@prisma/client/runtime/library").Decimal;
-            createdAt: Date;
-            updatedAt: Date;
+            fineBalance: import("src/generated/client/runtime/library").Decimal;
         };
     }>;
 }

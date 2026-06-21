@@ -6,27 +6,27 @@ export declare class CirculationController {
     constructor(circulationService: CirculationService);
     issue(dto: IssueBookDto): Promise<{
         id: string;
+        issueDate: Date;
+        dueDate: Date;
+        returnDate: Date | null;
+        fineAmount: import("src/generated/client/runtime/library").Decimal;
+        isReturned: boolean;
         createdAt: Date;
         updatedAt: Date;
         bookId: string;
         userId: string;
-        issueDate: Date;
-        dueDate: Date;
-        returnDate: Date | null;
-        fineAmount: import("@prisma/client/runtime/library").Decimal;
-        isReturned: boolean;
     }>;
     returnBook(id: string): Promise<{
         id: string;
+        issueDate: Date;
+        dueDate: Date;
+        returnDate: Date | null;
+        fineAmount: import("src/generated/client/runtime/library").Decimal;
+        isReturned: boolean;
         createdAt: Date;
         updatedAt: Date;
         bookId: string;
         userId: string;
-        issueDate: Date;
-        dueDate: Date;
-        returnDate: Date | null;
-        fineAmount: import("@prisma/client/runtime/library").Decimal;
-        isReturned: boolean;
     }>;
     updateDueDate(id: string, dto: UpdateDueDateDto): Promise<({
         user: {
@@ -38,78 +38,78 @@ export declare class CirculationController {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            categoryId: string;
-            language: string;
             title: string;
             author: string;
             isbn: string;
+            categoryId: string;
             shelfNo: string;
             totalCopies: number;
+            availableCopies: number;
             bookImage: string;
             description: string;
             publishedYear: number;
             publisher: string;
             pages: number;
-            availableCopies: number;
+            language: string;
         };
         fine: {
             id: string;
             createdAt: Date;
             updatedAt: Date;
             userId: string;
-            amount: import("@prisma/client/runtime/library").Decimal;
+            issueReturnId: string;
+            amount: import("src/generated/client/runtime/library").Decimal;
             isPaid: boolean;
             paidDate: Date | null;
-            issueReturnId: string;
         } | null;
     } & {
         id: string;
+        issueDate: Date;
+        dueDate: Date;
+        returnDate: Date | null;
+        fineAmount: import("src/generated/client/runtime/library").Decimal;
+        isReturned: boolean;
         createdAt: Date;
         updatedAt: Date;
         bookId: string;
         userId: string;
-        issueDate: Date;
-        dueDate: Date;
-        returnDate: Date | null;
-        fineAmount: import("@prisma/client/runtime/library").Decimal;
-        isReturned: boolean;
     }) | null>;
     myIssues(req: {
         user: {
             sub: string;
         };
-    }): import("@prisma/client").Prisma.PrismaPromise<({
+    }): import("src/generated/client").Prisma.PrismaPromise<({
         book: {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            categoryId: string;
-            language: string;
             title: string;
             author: string;
             isbn: string;
+            categoryId: string;
             shelfNo: string;
             totalCopies: number;
+            availableCopies: number;
             bookImage: string;
             description: string;
             publishedYear: number;
             publisher: string;
             pages: number;
-            availableCopies: number;
+            language: string;
         };
     } & {
         id: string;
+        issueDate: Date;
+        dueDate: Date;
+        returnDate: Date | null;
+        fineAmount: import("src/generated/client/runtime/library").Decimal;
+        isReturned: boolean;
         createdAt: Date;
         updatedAt: Date;
         bookId: string;
         userId: string;
-        issueDate: Date;
-        dueDate: Date;
-        returnDate: Date | null;
-        fineAmount: import("@prisma/client/runtime/library").Decimal;
-        isReturned: boolean;
     })[]>;
-    issueHistory(): import("@prisma/client").Prisma.PrismaPromise<({
+    issueHistory(): import("src/generated/client").Prisma.PrismaPromise<({
         user: {
             id: string;
             name: string;
@@ -119,31 +119,31 @@ export declare class CirculationController {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            categoryId: string;
-            language: string;
             title: string;
             author: string;
             isbn: string;
+            categoryId: string;
             shelfNo: string;
             totalCopies: number;
+            availableCopies: number;
             bookImage: string;
             description: string;
             publishedYear: number;
             publisher: string;
             pages: number;
-            availableCopies: number;
+            language: string;
         };
     } & {
         id: string;
+        issueDate: Date;
+        dueDate: Date;
+        returnDate: Date | null;
+        fineAmount: import("src/generated/client/runtime/library").Decimal;
+        isReturned: boolean;
         createdAt: Date;
         updatedAt: Date;
         bookId: string;
         userId: string;
-        issueDate: Date;
-        dueDate: Date;
-        returnDate: Date | null;
-        fineAmount: import("@prisma/client/runtime/library").Decimal;
-        isReturned: boolean;
     })[]>;
     triggerOverdue(forceEmail?: string): Promise<{
         message: string;

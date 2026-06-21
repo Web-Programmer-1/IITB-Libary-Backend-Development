@@ -2,48 +2,50 @@ import { UsersService } from './users.service';
 export declare class UsersController {
     private readonly usersService;
     constructor(usersService: UsersService);
-    findAll(): import("@prisma/client").Prisma.PrismaPromise<{
+    findAll(): import("src/generated/client").Prisma.PrismaPromise<{
         id: string;
+        createdAt: Date;
         name: string;
         email: string;
         phone: string;
-        fineBalance: import("@prisma/client/runtime/library").Decimal;
-        createdAt: Date;
+        fineBalance: import("src/generated/client/runtime/library").Decimal;
     }[]>;
     findOne(id: string): Promise<{
         reviews: {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            rating: number;
-            comment: string;
             bookId: string;
             userId: string;
+            rating: number;
+            comment: string;
         }[];
         issues: {
             id: string;
+            issueDate: Date;
+            dueDate: Date;
+            returnDate: Date | null;
+            fineAmount: import("src/generated/client/runtime/library").Decimal;
+            isReturned: boolean;
             createdAt: Date;
             updatedAt: Date;
             bookId: string;
             userId: string;
-            issueDate: Date;
-            dueDate: Date;
-            returnDate: Date | null;
-            fineAmount: import("@prisma/client/runtime/library").Decimal;
-            isReturned: boolean;
         }[];
         fines: {
             id: string;
             createdAt: Date;
             updatedAt: Date;
             userId: string;
-            amount: import("@prisma/client/runtime/library").Decimal;
+            issueReturnId: string;
+            amount: import("src/generated/client/runtime/library").Decimal;
             isPaid: boolean;
             paidDate: Date | null;
-            issueReturnId: string;
         }[];
     } & {
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
         name: string;
         email: string;
         password: string;
@@ -52,8 +54,6 @@ export declare class UsersController {
         profileImage: string | null;
         joinDate: Date;
         maxBooksAllowed: number;
-        fineBalance: import("@prisma/client/runtime/library").Decimal;
-        createdAt: Date;
-        updatedAt: Date;
+        fineBalance: import("src/generated/client/runtime/library").Decimal;
     }>;
 }

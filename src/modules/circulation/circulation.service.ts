@@ -1,5 +1,5 @@
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
-import { Prisma } from '@prisma/client';
+import { Prisma } from '../../generated/client';
 import { Cron } from '@nestjs/schedule';
 import { PrismaService } from '../prisma/prisma.service';
 import { IssueBookDto } from './dto/issue-book.dto';
@@ -292,7 +292,7 @@ export class CirculationService {
       const newFineAmount = calculateOverdueFine(issue.dueDate, now);
 
       if (newFineAmount > 0) {
-        const { hasFineIncrease, shouldSendEmail } = await this.prisma.$transaction(async (tx) => {
+        const { hasFineIncrease, shouldSendEmail } = await this.prisma.$transaction(async (tx: Prisma.TransactionClient) => {
           const existingFine = await tx.fine.findUnique({
             where: { issueReturnId: issue.id },
           });

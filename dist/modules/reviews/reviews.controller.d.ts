@@ -3,7 +3,7 @@ import { ReviewsService } from './reviews.service';
 export declare class ReviewsController {
     private readonly reviewsService;
     constructor(reviewsService: ReviewsService);
-    findByBook(bookId: string): import("@prisma/client").Prisma.PrismaPromise<({
+    findByBook(bookId: string): import("src/generated/client").Prisma.PrismaPromise<({
         user: {
             id: string;
             name: string;
@@ -13,10 +13,10 @@ export declare class ReviewsController {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        rating: number;
-        comment: string;
         bookId: string;
         userId: string;
+        rating: number;
+        comment: string;
     })[]>;
     create(req: {
         user: {
@@ -26,9 +26,9 @@ export declare class ReviewsController {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        rating: number;
-        comment: string;
         bookId: string;
         userId: string;
+        rating: number;
+        comment: string;
     }>;
 }

@@ -2,7 +2,7 @@ import { PrismaService } from '../prisma/prisma.service';
 export declare class ReportsService {
     private readonly prisma;
     constructor(prisma: PrismaService);
-    issuedBooks(): import("@prisma/client").Prisma.PrismaPromise<({
+    issuedBooks(): import("src/generated/client").Prisma.PrismaPromise<({
         user: {
             id: string;
             name: string;
@@ -12,33 +12,33 @@ export declare class ReportsService {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            categoryId: string;
-            language: string;
             title: string;
             author: string;
             isbn: string;
+            categoryId: string;
             shelfNo: string;
             totalCopies: number;
+            availableCopies: number;
             bookImage: string;
             description: string;
             publishedYear: number;
             publisher: string;
             pages: number;
-            availableCopies: number;
+            language: string;
         };
     } & {
         id: string;
+        issueDate: Date;
+        dueDate: Date;
+        returnDate: Date | null;
+        fineAmount: import("src/generated/client/runtime/library").Decimal;
+        isReturned: boolean;
         createdAt: Date;
         updatedAt: Date;
         bookId: string;
         userId: string;
-        issueDate: Date;
-        dueDate: Date;
-        returnDate: Date | null;
-        fineAmount: import("@prisma/client/runtime/library").Decimal;
-        isReturned: boolean;
     })[]>;
-    overdue(): import("@prisma/client").Prisma.PrismaPromise<({
+    overdue(): import("src/generated/client").Prisma.PrismaPromise<({
         user: {
             id: string;
             name: string;
@@ -48,33 +48,33 @@ export declare class ReportsService {
             id: string;
             createdAt: Date;
             updatedAt: Date;
-            categoryId: string;
-            language: string;
             title: string;
             author: string;
             isbn: string;
+            categoryId: string;
             shelfNo: string;
             totalCopies: number;
+            availableCopies: number;
             bookImage: string;
             description: string;
             publishedYear: number;
             publisher: string;
             pages: number;
-            availableCopies: number;
+            language: string;
         };
     } & {
         id: string;
+        issueDate: Date;
+        dueDate: Date;
+        returnDate: Date | null;
+        fineAmount: import("src/generated/client/runtime/library").Decimal;
+        isReturned: boolean;
         createdAt: Date;
         updatedAt: Date;
         bookId: string;
         userId: string;
-        issueDate: Date;
-        dueDate: Date;
-        returnDate: Date | null;
-        fineAmount: import("@prisma/client/runtime/library").Decimal;
-        isReturned: boolean;
     })[]>;
-    topBooks(): import("@prisma/client").Prisma.PrismaPromise<({
+    topBooks(): import("src/generated/client").Prisma.PrismaPromise<({
         _count: {
             issues: number;
         };
@@ -82,18 +82,18 @@ export declare class ReportsService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
-        categoryId: string;
-        language: string;
         title: string;
         author: string;
         isbn: string;
+        categoryId: string;
         shelfNo: string;
         totalCopies: number;
+        availableCopies: number;
         bookImage: string;
         description: string;
         publishedYear: number;
         publisher: string;
         pages: number;
-        availableCopies: number;
+        language: string;
     })[]>;
 }

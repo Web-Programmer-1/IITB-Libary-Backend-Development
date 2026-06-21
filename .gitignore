@@ -4,4 +4,6 @@ backend/.env
 backend/.nestjs-cache
 backend/prisma/dev.db
 backend/.local-postgres/
+backend/src/generated
 node_modules
+

@@ -4,13 +4,13 @@ import { BooksService } from './books.service';
 export declare class BooksController {
     private readonly booksService;
     constructor(booksService: BooksService);
-    findAll(query: BookQueryDto): import("@prisma/client").Prisma.PrismaPromise<({
+    findAll(query: BookQueryDto): import("src/generated/client").Prisma.PrismaPromise<({
         category: {
             id: string;
-            description: string;
             createdAt: Date;
             updatedAt: Date;
             name: string;
+            description: string;
             slug: string;
             categoryImage: string;
         };
@@ -19,9 +19,12 @@ export declare class BooksController {
         }[];
     } & {
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
         title: string;
         author: string;
         isbn: string;
+        categoryId: string;
         shelfNo: string;
         totalCopies: number;
         availableCopies: number;
@@ -31,17 +34,14 @@ export declare class BooksController {
         publisher: string;
         pages: number;
         language: string;
-        createdAt: Date;
-        updatedAt: Date;
-        categoryId: string;
     })[]>;
     findOne(id: string): Promise<{
         category: {
             id: string;
-            description: string;
             createdAt: Date;
             updatedAt: Date;
             name: string;
+            description: string;
             slug: string;
             categoryImage: string;
         };
@@ -61,9 +61,12 @@ export declare class BooksController {
         })[];
     } & {
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
         title: string;
         author: string;
         isbn: string;
+        categoryId: string;
         shelfNo: string;
         totalCopies: number;
         availableCopies: number;
@@ -73,15 +76,15 @@ export declare class BooksController {
         publisher: string;
         pages: number;
         language: string;
-        createdAt: Date;
-        updatedAt: Date;
-        categoryId: string;
     }>;
-    create(dto: CreateBookDto): import("@prisma/client").Prisma.Prisma__BookClient<{
+    create(dto: CreateBookDto): import("src/generated/client").Prisma.Prisma__BookClient<{
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
         title: string;
         author: string;
         isbn: string;
+        categoryId: string;
         shelfNo: string;
         totalCopies: number;
         availableCopies: number;
@@ -91,15 +94,15 @@ export declare class BooksController {
         publisher: string;
         pages: number;
         language: string;
-        createdAt: Date;
-        updatedAt: Date;
-        categoryId: string;
-    }, never, import("@prisma/client/runtime/library").DefaultArgs>;
+    }, never, import("src/generated/client/runtime/library").DefaultArgs>;
     remove(id: string): Promise<{
         id: string;
+        createdAt: Date;
+        updatedAt: Date;
         title: string;
         author: string;
         isbn: string;
+        categoryId: string;
         shelfNo: string;
         totalCopies: number;
         availableCopies: number;
@@ -109,8 +112,5 @@ export declare class BooksController {
         publisher: string;
         pages: number;
         language: string;
-        createdAt: Date;
-        updatedAt: Date;
-        categoryId: string;
     }>;
 }

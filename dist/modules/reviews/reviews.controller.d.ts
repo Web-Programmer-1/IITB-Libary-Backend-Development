@@ -3,7 +3,7 @@ import { ReviewsService } from './reviews.service';
 export declare class ReviewsController {
     private readonly reviewsService;
     constructor(reviewsService: ReviewsService);
-    findByBook(bookId: string): import("src/generated/client").Prisma.PrismaPromise<({
+    findByBook(bookId: string): import("@prisma/client").Prisma.PrismaPromise<({
         user: {
             id: string;
             name: string;

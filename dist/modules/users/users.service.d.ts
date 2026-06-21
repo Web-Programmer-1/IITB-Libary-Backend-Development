@@ -1,4 +1,4 @@
-import { Prisma, User } from '../../generated/client';
+import { Prisma, User } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 import { CreateUserDto } from './dto/create-user.dto';
 export declare class UsersService {
@@ -6,8 +6,6 @@ export declare class UsersService {
     constructor(prisma: PrismaService);
     create(dto: CreateUserDto): Prisma.Prisma__UserClient<{
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         email: string;
         password: string;
@@ -17,19 +15,19 @@ export declare class UsersService {
         joinDate: Date;
         maxBooksAllowed: number;
         fineBalance: Prisma.Decimal;
-    }, never, import("src/generated/client/runtime/library").DefaultArgs>;
+        createdAt: Date;
+        updatedAt: Date;
+    }, never, import("@prisma/client/runtime/library").DefaultArgs>;
     findAll(): Prisma.PrismaPromise<{
         id: string;
-        createdAt: Date;
         name: string;
         email: string;
         phone: string;
         fineBalance: Prisma.Decimal;
+        createdAt: Date;
     }[]>;
     findByEmail(email: string): Prisma.Prisma__UserClient<{
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         email: string;
         password: string;
@@ -39,7 +37,9 @@ export declare class UsersService {
         joinDate: Date;
         maxBooksAllowed: number;
         fineBalance: Prisma.Decimal;
-    } | null, null, import("src/generated/client/runtime/library").DefaultArgs>;
+        createdAt: Date;
+        updatedAt: Date;
+    } | null, null, import("@prisma/client/runtime/library").DefaultArgs>;
     findById(id: string): Promise<{
         reviews: {
             id: string;
@@ -52,15 +52,15 @@ export declare class UsersService {
         }[];
         issues: {
             id: string;
+            createdAt: Date;
+            updatedAt: Date;
+            bookId: string;
+            userId: string;
             issueDate: Date;
             dueDate: Date;
             returnDate: Date | null;
             fineAmount: Prisma.Decimal;
             isReturned: boolean;
-            createdAt: Date;
-            updatedAt: Date;
-            bookId: string;
-            userId: string;
         }[];
         fines: {
             id: string;
@@ -74,8 +74,6 @@ export declare class UsersService {
         }[];
     } & {
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         email: string;
         password: string;
@@ -85,11 +83,11 @@ export declare class UsersService {
         joinDate: Date;
         maxBooksAllowed: number;
         fineBalance: Prisma.Decimal;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     update(id: string, dto: Prisma.UserUpdateInput): Promise<{
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         email: string;
         password: string;
@@ -99,11 +97,11 @@ export declare class UsersService {
         joinDate: Date;
         maxBooksAllowed: number;
         fineBalance: Prisma.Decimal;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     sanitize(user: User | (User & Record<string, unknown>)): {
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         email: string;
         phone: string;
@@ -112,11 +110,11 @@ export declare class UsersService {
         joinDate: Date;
         maxBooksAllowed: number;
         fineBalance: Prisma.Decimal;
+        createdAt: Date;
+        updatedAt: Date;
     } | {
         [x: string]: unknown;
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         email: string;
         phone: string;
@@ -125,5 +123,7 @@ export declare class UsersService {
         joinDate: Date;
         maxBooksAllowed: number;
         fineBalance: Prisma.Decimal;
+        createdAt: Date;
+        updatedAt: Date;
     };
 }

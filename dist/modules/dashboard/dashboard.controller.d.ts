@@ -6,7 +6,7 @@ export declare class DashboardController {
         totalBooks: number;
         totalUsers: number;
         activeIssues: number;
-        totalPendingFines: number | import("src/generated/client/runtime/library").Decimal;
+        totalPendingFines: number | import("@prisma/client/runtime/library").Decimal;
         lowStockBooks: {
             id: string;
             title: string;
@@ -25,13 +25,14 @@ export declare class DashboardController {
             phone: string;
             profileImage: string | null;
             joinDate: Date;
-            fineBalance: import("src/generated/client/runtime/library").Decimal;
+            fineBalance: import("@prisma/client/runtime/library").Decimal;
         } | null;
         activeIssues: ({
             book: {
                 id: string;
                 createdAt: Date;
                 updatedAt: Date;
+                description: string;
                 title: string;
                 author: string;
                 isbn: string;
@@ -40,7 +41,6 @@ export declare class DashboardController {
                 totalCopies: number;
                 availableCopies: number;
                 bookImage: string;
-                description: string;
                 publishedYear: number;
                 publisher: string;
                 pages: number;
@@ -51,7 +51,7 @@ export declare class DashboardController {
             issueDate: Date;
             dueDate: Date;
             returnDate: Date | null;
-            fineAmount: import("src/generated/client/runtime/library").Decimal;
+            fineAmount: import("@prisma/client/runtime/library").Decimal;
             isReturned: boolean;
             createdAt: Date;
             updatedAt: Date;
@@ -89,7 +89,7 @@ export declare class DashboardController {
             updatedAt: Date;
             userId: string;
             issueReturnId: string;
-            amount: import("src/generated/client/runtime/library").Decimal;
+            amount: import("@prisma/client/runtime/library").Decimal;
             isPaid: boolean;
             paidDate: Date | null;
         })[];
@@ -118,7 +118,7 @@ export declare class DashboardController {
             updatedAt: Date;
             userId: string;
             issueReturnId: string;
-            amount: import("src/generated/client/runtime/library").Decimal;
+            amount: import("@prisma/client/runtime/library").Decimal;
             isPaid: boolean;
             paidDate: Date | null;
         };

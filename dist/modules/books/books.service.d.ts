@@ -4,10 +4,11 @@ import { CreateBookDto } from './dto/create-book.dto';
 export declare class BooksService {
     private readonly prisma;
     constructor(prisma: PrismaService);
-    create(dto: CreateBookDto): import("src/generated/client").Prisma.Prisma__BookClient<{
+    create(dto: CreateBookDto): import("@prisma/client").Prisma.Prisma__BookClient<{
         id: string;
         createdAt: Date;
         updatedAt: Date;
+        description: string;
         title: string;
         author: string;
         isbn: string;
@@ -16,20 +17,19 @@ export declare class BooksService {
         totalCopies: number;
         availableCopies: number;
         bookImage: string;
-        description: string;
         publishedYear: number;
         publisher: string;
         pages: number;
         language: string;
-    }, never, import("src/generated/client/runtime/library").DefaultArgs>;
-    findAll(query: BookQueryDto): import("src/generated/client").Prisma.PrismaPromise<({
+    }, never, import("@prisma/client/runtime/library").DefaultArgs>;
+    findAll(query: BookQueryDto): import("@prisma/client").Prisma.PrismaPromise<({
         category: {
             id: string;
             createdAt: Date;
             updatedAt: Date;
             name: string;
-            description: string;
             slug: string;
+            description: string;
             categoryImage: string;
         };
         reviews: {
@@ -39,6 +39,7 @@ export declare class BooksService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
+        description: string;
         title: string;
         author: string;
         isbn: string;
@@ -47,7 +48,6 @@ export declare class BooksService {
         totalCopies: number;
         availableCopies: number;
         bookImage: string;
-        description: string;
         publishedYear: number;
         publisher: string;
         pages: number;
@@ -59,8 +59,8 @@ export declare class BooksService {
             createdAt: Date;
             updatedAt: Date;
             name: string;
-            description: string;
             slug: string;
+            description: string;
             categoryImage: string;
         };
         reviews: ({
@@ -81,6 +81,7 @@ export declare class BooksService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
+        description: string;
         title: string;
         author: string;
         isbn: string;
@@ -89,7 +90,6 @@ export declare class BooksService {
         totalCopies: number;
         availableCopies: number;
         bookImage: string;
-        description: string;
         publishedYear: number;
         publisher: string;
         pages: number;
@@ -99,6 +99,7 @@ export declare class BooksService {
         id: string;
         createdAt: Date;
         updatedAt: Date;
+        description: string;
         title: string;
         author: string;
         isbn: string;
@@ -107,7 +108,6 @@ export declare class BooksService {
         totalCopies: number;
         availableCopies: number;
         bookImage: string;
-        description: string;
         publishedYear: number;
         publisher: string;
         pages: number;

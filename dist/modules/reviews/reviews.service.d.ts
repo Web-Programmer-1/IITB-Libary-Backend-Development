@@ -12,7 +12,7 @@ export declare class ReviewsService {
         rating: number;
         comment: string;
     }>;
-    findByBook(bookId: string): import("src/generated/client").Prisma.PrismaPromise<({
+    findByBook(bookId: string): import("@prisma/client").Prisma.PrismaPromise<({
         user: {
             id: string;
             name: string;

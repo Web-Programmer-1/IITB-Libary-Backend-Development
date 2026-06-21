@@ -9,7 +9,7 @@ export declare class CirculationController {
         issueDate: Date;
         dueDate: Date;
         returnDate: Date | null;
-        fineAmount: import("src/generated/client/runtime/library").Decimal;
+        fineAmount: import("@prisma/client/runtime/library").Decimal;
         isReturned: boolean;
         createdAt: Date;
         updatedAt: Date;
@@ -21,7 +21,7 @@ export declare class CirculationController {
         issueDate: Date;
         dueDate: Date;
         returnDate: Date | null;
-        fineAmount: import("src/generated/client/runtime/library").Decimal;
+        fineAmount: import("@prisma/client/runtime/library").Decimal;
         isReturned: boolean;
         createdAt: Date;
         updatedAt: Date;
@@ -58,7 +58,7 @@ export declare class CirculationController {
             updatedAt: Date;
             userId: string;
             issueReturnId: string;
-            amount: import("src/generated/client/runtime/library").Decimal;
+            amount: import("@prisma/client/runtime/library").Decimal;
             isPaid: boolean;
             paidDate: Date | null;
         } | null;
@@ -67,7 +67,7 @@ export declare class CirculationController {
         issueDate: Date;
         dueDate: Date;
         returnDate: Date | null;
-        fineAmount: import("src/generated/client/runtime/library").Decimal;
+        fineAmount: import("@prisma/client/runtime/library").Decimal;
         isReturned: boolean;
         createdAt: Date;
         updatedAt: Date;
@@ -78,7 +78,7 @@ export declare class CirculationController {
         user: {
             sub: string;
         };
-    }): import("src/generated/client").Prisma.PrismaPromise<({
+    }): import("@prisma/client").Prisma.PrismaPromise<({
         book: {
             id: string;
             createdAt: Date;
@@ -102,14 +102,14 @@ export declare class CirculationController {
         issueDate: Date;
         dueDate: Date;
         returnDate: Date | null;
-        fineAmount: import("src/generated/client/runtime/library").Decimal;
+        fineAmount: import("@prisma/client/runtime/library").Decimal;
         isReturned: boolean;
         createdAt: Date;
         updatedAt: Date;
         bookId: string;
         userId: string;
     })[]>;
-    issueHistory(): import("src/generated/client").Prisma.PrismaPromise<({
+    issueHistory(): import("@prisma/client").Prisma.PrismaPromise<({
         user: {
             id: string;
             name: string;
@@ -138,7 +138,7 @@ export declare class CirculationController {
         issueDate: Date;
         dueDate: Date;
         returnDate: Date | null;
-        fineAmount: import("src/generated/client/runtime/library").Decimal;
+        fineAmount: import("@prisma/client/runtime/library").Decimal;
         isReturned: boolean;
         createdAt: Date;
         updatedAt: Date;

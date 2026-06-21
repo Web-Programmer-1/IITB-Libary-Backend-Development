@@ -2,13 +2,13 @@ import { UsersService } from './users.service';
 export declare class UsersController {
     private readonly usersService;
     constructor(usersService: UsersService);
-    findAll(): import("src/generated/client").Prisma.PrismaPromise<{
+    findAll(): import("@prisma/client").Prisma.PrismaPromise<{
         id: string;
-        createdAt: Date;
         name: string;
         email: string;
         phone: string;
-        fineBalance: import("src/generated/client/runtime/library").Decimal;
+        fineBalance: import("@prisma/client/runtime/library").Decimal;
+        createdAt: Date;
     }[]>;
     findOne(id: string): Promise<{
         reviews: {
@@ -22,15 +22,15 @@ export declare class UsersController {
         }[];
         issues: {
             id: string;
-            issueDate: Date;
-            dueDate: Date;
-            returnDate: Date | null;
-            fineAmount: import("src/generated/client/runtime/library").Decimal;
-            isReturned: boolean;
             createdAt: Date;
             updatedAt: Date;
             bookId: string;
             userId: string;
+            issueDate: Date;
+            dueDate: Date;
+            returnDate: Date | null;
+            fineAmount: import("@prisma/client/runtime/library").Decimal;
+            isReturned: boolean;
         }[];
         fines: {
             id: string;
@@ -38,14 +38,12 @@ export declare class UsersController {
             updatedAt: Date;
             userId: string;
             issueReturnId: string;
-            amount: import("src/generated/client/runtime/library").Decimal;
+            amount: import("@prisma/client/runtime/library").Decimal;
             isPaid: boolean;
             paidDate: Date | null;
         }[];
     } & {
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         email: string;
         password: string;
@@ -54,6 +52,8 @@ export declare class UsersController {
         profileImage: string | null;
         joinDate: Date;
         maxBooksAllowed: number;
-        fineBalance: import("src/generated/client/runtime/library").Decimal;
+        fineBalance: import("@prisma/client/runtime/library").Decimal;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
 }

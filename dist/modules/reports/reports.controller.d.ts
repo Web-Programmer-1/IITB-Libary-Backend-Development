@@ -2,7 +2,7 @@ import { ReportsService } from './reports.service';
 export declare class ReportsController {
     private readonly reportsService;
     constructor(reportsService: ReportsService);
-    issuedBooks(): import("src/generated/client").Prisma.PrismaPromise<({
+    issuedBooks(): import("@prisma/client").Prisma.PrismaPromise<({
         user: {
             id: string;
             name: string;
@@ -12,6 +12,7 @@ export declare class ReportsController {
             id: string;
             createdAt: Date;
             updatedAt: Date;
+            description: string;
             title: string;
             author: string;
             isbn: string;
@@ -20,7 +21,6 @@ export declare class ReportsController {
             totalCopies: number;
             availableCopies: number;
             bookImage: string;
-            description: string;
             publishedYear: number;
             publisher: string;
             pages: number;
@@ -31,14 +31,14 @@ export declare class ReportsController {
         issueDate: Date;
         dueDate: Date;
         returnDate: Date | null;
-        fineAmount: import("src/generated/client/runtime/library").Decimal;
+        fineAmount: import("@prisma/client/runtime/library").Decimal;
         isReturned: boolean;
         createdAt: Date;
         updatedAt: Date;
         bookId: string;
         userId: string;
     })[]>;
-    overdue(): import("src/generated/client").Prisma.PrismaPromise<({
+    overdue(): import("@prisma/client").Prisma.PrismaPromise<({
         user: {
             id: string;
             name: string;
@@ -48,6 +48,7 @@ export declare class ReportsController {
             id: string;
             createdAt: Date;
             updatedAt: Date;
+            description: string;
             title: string;
             author: string;
             isbn: string;
@@ -56,7 +57,6 @@ export declare class ReportsController {
             totalCopies: number;
             availableCopies: number;
             bookImage: string;
-            description: string;
             publishedYear: number;
             publisher: string;
             pages: number;
@@ -67,14 +67,14 @@ export declare class ReportsController {
         issueDate: Date;
         dueDate: Date;
         returnDate: Date | null;
-        fineAmount: import("src/generated/client/runtime/library").Decimal;
+        fineAmount: import("@prisma/client/runtime/library").Decimal;
         isReturned: boolean;
         createdAt: Date;
         updatedAt: Date;
         bookId: string;
         userId: string;
     })[]>;
-    topBooks(): import("src/generated/client").Prisma.PrismaPromise<({
+    topBooks(): import("@prisma/client").Prisma.PrismaPromise<({
         _count: {
             issues: number;
         };
@@ -82,6 +82,7 @@ export declare class ReportsController {
         id: string;
         createdAt: Date;
         updatedAt: Date;
+        description: string;
         title: string;
         author: string;
         isbn: string;
@@ -90,7 +91,6 @@ export declare class ReportsController {
         totalCopies: number;
         availableCopies: number;
         bookImage: string;
-        description: string;
         publishedYear: number;
         publisher: string;
         pages: number;

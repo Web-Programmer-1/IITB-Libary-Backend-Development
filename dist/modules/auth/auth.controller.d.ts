@@ -9,8 +9,6 @@ export declare class AuthController {
         message: string;
         user: {
             id: string;
-            createdAt: Date;
-            updatedAt: Date;
             name: string;
             email: string;
             password: string;
@@ -19,15 +17,15 @@ export declare class AuthController {
             profileImage: string | null;
             joinDate: Date;
             maxBooksAllowed: number;
-            fineBalance: import("src/generated/client/runtime/library").Decimal;
+            fineBalance: import("@prisma/client/runtime/library").Decimal;
+            createdAt: Date;
+            updatedAt: Date;
         };
     }>;
     login(dto: LoginDto): Promise<{
         accessToken: string;
         user: {
             id: string;
-            createdAt: Date;
-            updatedAt: Date;
             name: string;
             email: string;
             phone: string;
@@ -35,12 +33,12 @@ export declare class AuthController {
             profileImage: string | null;
             joinDate: Date;
             maxBooksAllowed: number;
-            fineBalance: import("src/generated/client/runtime/library").Decimal;
+            fineBalance: import("@prisma/client/runtime/library").Decimal;
+            createdAt: Date;
+            updatedAt: Date;
         } | {
             [x: string]: unknown;
             id: string;
-            createdAt: Date;
-            updatedAt: Date;
             name: string;
             email: string;
             phone: string;
@@ -48,7 +46,9 @@ export declare class AuthController {
             profileImage: string | null;
             joinDate: Date;
             maxBooksAllowed: number;
-            fineBalance: import("src/generated/client/runtime/library").Decimal;
+            fineBalance: import("@prisma/client/runtime/library").Decimal;
+            createdAt: Date;
+            updatedAt: Date;
         };
     }>;
     me(req: {
@@ -57,8 +57,6 @@ export declare class AuthController {
         };
     }): Promise<{
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         email: string;
         phone: string;
@@ -66,12 +64,12 @@ export declare class AuthController {
         profileImage: string | null;
         joinDate: Date;
         maxBooksAllowed: number;
-        fineBalance: import("src/generated/client/runtime/library").Decimal;
+        fineBalance: import("@prisma/client/runtime/library").Decimal;
+        createdAt: Date;
+        updatedAt: Date;
     } | {
         [x: string]: unknown;
         id: string;
-        createdAt: Date;
-        updatedAt: Date;
         name: string;
         email: string;
         phone: string;
@@ -79,7 +77,9 @@ export declare class AuthController {
         profileImage: string | null;
         joinDate: Date;
         maxBooksAllowed: number;
-        fineBalance: import("src/generated/client/runtime/library").Decimal;
+        fineBalance: import("@prisma/client/runtime/library").Decimal;
+        createdAt: Date;
+        updatedAt: Date;
     }>;
     updateProfile(req: {
         user: {
@@ -89,8 +89,6 @@ export declare class AuthController {
         message: string;
         user: {
             id: string;
-            createdAt: Date;
-            updatedAt: Date;
             name: string;
             email: string;
             phone: string;
@@ -98,12 +96,12 @@ export declare class AuthController {
             profileImage: string | null;
             joinDate: Date;
             maxBooksAllowed: number;
-            fineBalance: import("src/generated/client/runtime/library").Decimal;
+            fineBalance: import("@prisma/client/runtime/library").Decimal;
+            createdAt: Date;
+            updatedAt: Date;
         } | {
             [x: string]: unknown;
             id: string;
-            createdAt: Date;
-            updatedAt: Date;
             name: string;
             email: string;
             phone: string;
@@ -111,7 +109,9 @@ export declare class AuthController {
             profileImage: string | null;
             joinDate: Date;
             maxBooksAllowed: number;
-            fineBalance: import("src/generated/client/runtime/library").Decimal;
+            fineBalance: import("@prisma/client/runtime/library").Decimal;
+            createdAt: Date;
+            updatedAt: Date;
         };
     }>;
 }

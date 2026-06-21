@@ -1,4 +1,4 @@
-import { Prisma } from '../../generated/client';
+import { Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service';
 import { IssueBookDto } from './dto/issue-book.dto';
 import { EmailService } from '../email/email.service';

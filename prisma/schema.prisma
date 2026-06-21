@@ -1,0 +1,102 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id              String        @id @default(uuid())
+  name            String
+  email           String        @unique
+  password        String
+  phone           String
+  address         String
+  profileImage    String?
+  joinDate        DateTime      @default(now())
+  maxBooksAllowed Int           @default(3)
+  fineBalance     Decimal       @default(0) @db.Decimal(10, 2)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  reviews         Review[]
+  issues          IssueReturn[]
+  fines           Fine[]
+}
+
+model Category {
+  id            String   @id @default(uuid())
+  name          String
+  slug          String   @unique
+  description   String
+  categoryImage String
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  books         Book[]
+}
+
+model Book {
+  id              String        @id @default(uuid())
+  title           String
+  author          String
+  isbn            String        @unique
+  categoryId      String
+  shelfNo         String
+  totalCopies     Int
+  availableCopies Int
+  bookImage       String
+  description     String
+  publishedYear   Int
+  publisher       String
+  pages           Int
+  language        String
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  category        Category      @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+  reviews         Review[]
+  issues          IssueReturn[]
+}
+
+model Review {
+  id        String   @id @default(uuid())
+  bookId    String
+  userId    String
+  rating    Int
+  comment   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  book      Book     @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([bookId, userId])
+}
+
+model IssueReturn {
+  id         String    @id @default(uuid())
+  bookId      String
+  userId      String
+  issueDate   DateTime
+  dueDate     DateTime
+  returnDate  DateTime?
+  fineAmount  Decimal   @default(0) @db.Decimal(10, 2)
+  isReturned  Boolean   @default(false)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  book        Book      @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  fine        Fine?
+}
+
+model Fine {
+  id            String      @id @default(uuid())
+  issueReturnId String      @unique
+  userId        String
+  amount        Decimal     @db.Decimal(10, 2)
+  isPaid        Boolean     @default(false)
+  paidDate      DateTime?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+  issueReturn   IssueReturn @relation(fields: [issueReturnId], references: [id], onDelete: Cascade)
+  user          User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+}

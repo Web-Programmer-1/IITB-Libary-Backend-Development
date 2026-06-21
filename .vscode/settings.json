@@ -1,0 +1,4 @@
+{
+  "prisma.prismaFmtBinPath": "./node_modules/.pnpm/prisma@5.22.0/node_modules/prisma",
+  "prisma.schemaFileWatcher": true
+}
